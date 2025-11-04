@@ -19,7 +19,7 @@ export default function EditProfilePage() {
   const handleSubmit = async (formData: FormData) => {
     const userName = formData.get("username") as string;
 
-    const data = { username: userName };
+    const data = { username: userName, email: user ? user.email:"" };
     const updatedRes = await updateMe(data);
     setUser(updatedRes);
     router.push("/profile");

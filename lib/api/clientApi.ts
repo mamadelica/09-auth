@@ -1,7 +1,11 @@
 import { Note } from "@/types/note";
 import { api, FetchNotesParams, FetchNotesResponse, SessionCheckResponse } from "./api";
-import { User, UserData, UserRegisterData } from "@/types/user";
+import { User, UserRegisterData } from "@/types/user";
 
+export interface UserProfileEditedData {
+  email: string;
+  username: string;
+}
 
 export const fetchNotes = async ({
   page = 1,
@@ -65,7 +69,7 @@ export async function getMe(): Promise<User> {
   return res.data;
 }
 
-export async function updateMe(data: UserData): Promise<User> {
+export async function updateMe(data: UserProfileEditedData): Promise<User> {
   const res = await api.patch("/users/me", data);
   return res.data;
 }

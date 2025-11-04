@@ -47,7 +47,9 @@ export default function NotePreview() {
             <p className={css.content}>{content}</p>
             <p className={css.date}>{formattedDate}</p>
           </div>
+          
         )}
+        <button onClick={handleClosePreview}>Close</button>
       </div>
     </Modal>
   );
